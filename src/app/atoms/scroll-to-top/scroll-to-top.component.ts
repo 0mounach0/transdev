@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'scroll-to-top',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scroll-to-top.component.scss']
 })
 export class ScrollToTopComponent implements OnInit {
+
+  public showScrollButton: boolean = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showScrollButton = window.scrollY > 100;
+  }
 
   constructor() { }
 

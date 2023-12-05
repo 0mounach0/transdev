@@ -12,6 +12,12 @@ import { NavigationBarComponent } from './molecules/navigation-bar/navigation-ba
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './pages/cart/cart.component';
+import { SearchBtnComponent } from './atoms/search-btn/search-btn.component';
+import { SearchInputComponent } from './atoms/search-input/search-input.component';
+import { SearchMolecComponent } from './molecules/search-molec/search-molec.component';
+import { SearchOrgComponent } from './organisms/search-org/search-org.component';
+import { ResultsOrgComponent } from './organisms/results-org/results-org.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +28,20 @@ import { CartComponent } from './pages/cart/cart.component';
     ThankYouComponent,
     ScrollToTopComponent,
     NavigationBarComponent,
-    CartComponent
+    CartComponent,
+    SearchBtnComponent,
+    SearchInputComponent,
+    SearchMolecComponent,
+    SearchOrgComponent,
+    ResultsOrgComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
