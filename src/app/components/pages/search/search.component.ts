@@ -41,10 +41,7 @@ export class SearchComponent implements OnInit {
       this.filteredData = this.jsonData.filter(item =>
         this.getLineSeachInfos(item).includes(this.searchQuery.toLowerCase())
       );
-
-      console.log(this.filteredData)
     }
-    
     this.totalPages = Math.ceil(this.filteredData.length / this.pageSize);
     this.navigateToPage(1, this.filteredData);
     if(this.totalPages === 0) {
@@ -54,7 +51,6 @@ export class SearchComponent implements OnInit {
 
   public getLineSeachInfos(line: Line): string {
     const str = line.busNum + " | " + line.startCity + " - " + line.startStation + " | " + line.endCity + line.endStation; 
-    console.log(str);
     return str.toLowerCase();
   }
 
