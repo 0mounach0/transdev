@@ -1,0 +1,24 @@
+.trip-card {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    max-width: 600px;
+    border: 1px solid black;
+}
+
+
+.line-number {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: center;
+    order: 0;
+}
+
+
+.line-description {
+    
+}

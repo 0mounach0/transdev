@@ -18,6 +18,8 @@ import { SearchMolecComponent } from './molecules/search-molec/search-molec.comp
 import { SearchOrgComponent } from './organisms/search-org/search-org.component';
 import { ResultsOrgComponent } from './organisms/results-org/results-org.component';
 import { FormsModule } from '@angular/forms';
+import { BadgeComponent } from './atoms/badge/badge.component';
+import { TripCardComponent } from './molecules/trip-card/trip-card.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { FormsModule } from '@angular/forms';
     SearchInputComponent,
     SearchMolecComponent,
     SearchOrgComponent,
-    ResultsOrgComponent
+    ResultsOrgComponent,
+    BadgeComponent,
+    TripCardComponent
   ],
   imports: [
     BrowserModule,
