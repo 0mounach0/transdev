@@ -6,7 +6,7 @@
 
   <div class="form-search">
     <div class="form">
-      <search-molec></search-molec>
+      <search-molec ($searchQuery)="$searchQuery.emit($event)"></search-molec>
       <div class="exemples texte">
         <p>Exemples&nbsp;: <span>Aulnay-sous-bois, 13 Chelles-Villeparisis</span></p>
       </div>

@@ -1,5 +1,5 @@
 <div class="search-container">
-    <search-org></search-org>
+    <search-org ($searchQuery)="bindSearchQuery($event)"></search-org>
     <results-org [pageData]="pageData"></results-org>
 </div>
 

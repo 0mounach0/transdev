@@ -17,4 +17,9 @@ export class SearchMolecComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public clearInput() {
+    this.searchQuery = '';
+    this.$searchQuery.emit(this.searchQuery);
+  }
+
 }

@@ -41,6 +41,8 @@ export class SearchComponent implements OnInit {
       this.filteredData = this.jsonData.filter(item =>
         this.getLineSeachInfos(item).includes(this.searchQuery.toLowerCase())
       );
+
+      console.log(this.filteredData)
     }
     
     this.totalPages = Math.ceil(this.filteredData.length / this.pageSize);
@@ -51,7 +53,9 @@ export class SearchComponent implements OnInit {
   }
 
   public getLineSeachInfos(line: Line): string {
-    return line.busNum + " | " + line.startCity + " - " + line.startStation + " | " + line.endCity + line.endStation;
+    const str = line.busNum + " | " + line.startCity + " - " + line.startStation + " | " + line.endCity + line.endStation; 
+    console.log(str);
+    return str.toLowerCase();
   }
 
   public getPageData(pageNumber: number, data: Line[]): void {
@@ -83,6 +87,11 @@ export class SearchComponent implements OnInit {
     const start = Math.max(1, this.currentPage - 2);
     const end = Math.min(this.totalPages, start + 4);
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  }
+
+  public bindSearchQuery(sQuery: string): void {
+    this.searchQuery = sQuery;
+    this.filterData();
   }
 
 }

@@ -19,7 +19,6 @@ export class ResultsOrgComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.pageData)
   }
 
 }
