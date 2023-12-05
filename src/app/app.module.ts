@@ -22,6 +22,7 @@ import { BadgeComponent } from './atoms/badge/badge.component';
 import { TripCardComponent } from './molecules/trip-card/trip-card.component';
 import { PaginationComponent } from './organisms/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     ResultsOrgComponent,
     BadgeComponent,
     TripCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    DebouceKeyupDirective
   ],
   imports: [
     BrowserModule,
