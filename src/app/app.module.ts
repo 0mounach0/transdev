@@ -23,6 +23,7 @@ import { TripCardComponent } from './components/molecules/trip-card/trip-card.co
 import { PaginationComponent } from './components/organisms/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
+import { ConfirmModalComponent } from './components/molecules/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
     BadgeComponent,
     TripCardComponent,
     PaginationComponent,
-    DebouceKeyupDirective
+    DebouceKeyupDirective,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
