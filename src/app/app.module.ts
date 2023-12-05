@@ -20,6 +20,8 @@ import { ResultsOrgComponent } from './organisms/results-org/results-org.compone
 import { FormsModule } from '@angular/forms';
 import { BadgeComponent } from './atoms/badge/badge.component';
 import { TripCardComponent } from './molecules/trip-card/trip-card.component';
+import { PaginationComponent } from './organisms/pagination/pagination.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,15 +39,16 @@ import { TripCardComponent } from './molecules/trip-card/trip-card.component';
     SearchOrgComponent,
     ResultsOrgComponent,
     BadgeComponent,
-    TripCardComponent
+    TripCardComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    FormsModule,
-
+    FormsModule,  
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

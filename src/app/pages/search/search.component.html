@@ -1,4 +1,15 @@
 <div class="search-container">
     <search-org></search-org>
-    <results-org></results-org>
+    <results-org [pageData]="pageData"></results-org>
 </div>
+
+<footer>
+    <pagination 
+      [currentPage]="currentPage"
+      [pageSize]="pageSize"
+      [totalPages]="totalPages"
+      ($navigateToPage)="navigateToPage($event, filteredData)"
+      ($navigateToPreviousPage)="navigateToPreviousPage()"
+      ($navigateToNextPage)="navigateToNextPage()"
+    ></pagination>
+</footer>

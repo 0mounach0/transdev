@@ -12,17 +12,17 @@ export class DataService {
   }
 
   public parseJSON(): Observable<any> {
-    let filePath: string = 'assets/data/data.json'; 
+    let filePath: string = 'assets/data/data.json';
     return new Observable(observer => {
-      this.httpClient.get(filePath).subscribe(
-        (jsonData: any) => {
+      this.httpClient.get(filePath).subscribe({
+        next: (jsonData: any) => {
           observer.next(jsonData);
           observer.complete();
         },
-        error => {
+        error: (error: any) => {
           observer.error(error);
         }
-      );
+      });
     });
   }
 

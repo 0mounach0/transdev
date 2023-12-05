@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Line } from 'src/app/models/line.model';
 
 @Component({
   selector: 'trip-card',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TripCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() item!: Line;
+
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }

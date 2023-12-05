@@ -1,3 +1,7 @@
 <section class="results-sec">
-    <trip-card></trip-card>
+    <ng-container *ngIf="pageData">
+        <ng-container *ngFor="let item of pageData">
+          <trip-card [item]="item"></trip-card>
+        </ng-container>
+    </ng-container>
 </section>

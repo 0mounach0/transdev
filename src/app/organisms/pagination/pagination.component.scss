@@ -1,0 +1,30 @@
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #9B9B9B;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: inherit;
+    padding: 0px 8px;
+
+    &.disabled {
+        display: none;
+    }
+
+    &.active {
+        color: #000000;
+        font-weight: 600;
+    }
+}
+
+.more {
+    color: #9B9B9B;
+}

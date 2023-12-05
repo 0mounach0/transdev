@@ -1,15 +1,18 @@
 <div class="trip-card">
     <div class="line-number">
-        <badge></badge>
+        <badge [label]="item.busNum"></badge>
     </div>
     <div class="line-description">
         <div class="start">
-            <span class="city"> Le Blanc-Mesnil</span>
-            <span class="station"> - Gare du Blanc-Mesnil - </span>
+            <span class="city"> {{item.startCity}}</span>
+            <span class="station"> - {{item.startStation}} - </span>
         </div>
         <div class="end">
-            <span class="city"> Mitry-Mory</span>
-            <span class="station"> - Gare de Villeparisis Mitry-le-Neuf</span>
+            <span class="city"> {{item.endCity}}</span>
+            <span class="station"> - {{item.endStation}}</span>
         </div>
+    </div>
+    <div class="line-price">
+        <span class="price"> {{item.price}}</span>
     </div>
 </div>
