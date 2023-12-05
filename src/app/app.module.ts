@@ -6,6 +6,12 @@ import { SearchComponent } from './pages/search/search.component';
 import { ReservationsComponent } from './pages/reservations/reservations.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ScrollToTopComponent } from './atoms/scroll-to-top/scroll-to-top.component';
+import { NavigationBarComponent } from './molecules/navigation-bar/navigation-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './pages/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +19,16 @@ import { ThankYouComponent } from './pages/thank-you/thank-you.component';
     SearchComponent,
     ReservationsComponent,
     CheckoutComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    ScrollToTopComponent,
+    NavigationBarComponent,
+    CartComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
