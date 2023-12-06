@@ -1,6 +1,6 @@
 <div class="container">
 
-    <h1>Shopping Cart</h1>
+    <h1><strong>Shopping Cart</strong></h1>
 
     <div class="reservations">
         <img *ngIf="reservations.length <= 0" class="sad" width="250px" src="assets/icons/sad.svg" alt="search">
@@ -11,7 +11,7 @@
         </ng-container>
     </div>
 
-
-    <button [disabled]="reservations.length <= 0" routerLink="/checkout" class="checkout-button">Checkout</button>
+    <span class="totalPrice left">{{totalPrice}} <strong>Euro</strong></span> 
+    <button [disabled]="reservations.length <= 0" (click)="goToCheckout()" class="checkout-button">Checkout</button>
 
 </div>

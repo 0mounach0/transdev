@@ -11,7 +11,8 @@ export class CartService {
   private cartSubject = new BehaviorSubject<Cart>({
     reservations: [],
     clients: [],
-    tickets: []
+    tickets: [],
+    totalPrice: 0
   });
 
   public cart$ = this.cartSubject.asObservable();
@@ -25,6 +26,8 @@ export class CartService {
       ...currentCart,
       reservations: [...(currentCart.reservations || []), reservation]
     });
+
+    this.calculateTotalPrice();
   }
 
   public removeReservation(reservation: Reservation) {
@@ -32,6 +35,8 @@ export class CartService {
       ...this.cartSubject.value,
       reservations: this.cartSubject.value.reservations?.filter(r => r.uuid !== reservation.uuid)
     });
+
+    this.calculateTotalPrice();
   }
 
   public editReservation(reservation: Reservation) {
@@ -39,12 +44,36 @@ export class CartService {
       ...this.cartSubject.value,
       reservations: this.cartSubject.value.reservations?.map(r => r.uuid === reservation.uuid ? reservation : r)
     });
+
+    this.calculateTotalPrice();
   }
 
   public getReservations(): Observable<Reservation[]> {
     return this.cart$.pipe(
       map((cart) => cart.reservations || [])
     );
+  }
+
+  public getTotalPrice(): Observable<number> {
+    return this.cart$.pipe(
+      map((cart) => cart.totalPrice || 0)
+    );
+  }
+
+  public calculateTotalPrice(): void {
+    const currentCart = this.cartSubject.value;
+    let totalPrice = 0;
+
+    if (currentCart.reservations) {
+      for (const reservation of currentCart.reservations) {
+          totalPrice += reservation.line.price;
+      }
+    }
+
+    this.cartSubject.next({
+      ...currentCart,
+      totalPrice
+    });
   }
 
   public clearCart() {
