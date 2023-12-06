@@ -1,1 +1,21 @@
-<p>reservations works!</p>
+<div class="container">
+
+    <h1><strong>Tickets - Reservations</strong></h1>
+
+    <div class="reservations">
+        <img *ngIf="tickets.length <= 0" class="sad" width="250px" src="assets/icons/sad.svg" alt="search">
+        <ng-container *ngIf="tickets">
+            <ng-container *ngFor="let tick of tickets">
+                <div class="ticket-container">
+                    <h2><strong>Ticket Id</strong>: {{tick.uuid}}</h2>
+                    <h2><strong>Total Price</strong>: {{tick.totalPrice}}</h2>
+                    <ng-container *ngFor="let item of tick.reservations">
+                        <cart-card [hideButtons]="true" [item]="item"></cart-card>
+                    </ng-container>
+                </div>
+            </ng-container>
+            
+        </ng-container>
+    </div>
+
+</div>

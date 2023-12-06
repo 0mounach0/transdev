@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   IPayPalConfig,
   ICreateOrderRequest 
 } from 'ngx-paypal';
+import { PaymentType } from 'src/app/enums/payementType';
+import { Reservation } from 'src/app/models/reservation.model';
+import { Ticket } from 'src/app/models/ticket.model';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +15,21 @@ import {
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+    public paypalSelected: boolean = false;
   public payPalConfig ? : IPayPalConfig;
+
+  public reservations!: Reservation[];
+  public totalPrice: number = 0;
+
+  constructor(private cartService: CartService, private router: Router) { 
+    this.cartService.getReservations().subscribe(reservations => {
+      this.reservations = reservations;
+    });
+
+    this.cartService.getTotalPrice().subscribe(totalP => {
+      this.totalPrice = totalP;
+    });
+  }
 
     ngOnInit(): void {
         this.initConfig();
@@ -25,21 +44,21 @@ export class CheckoutComponent implements OnInit {
                 purchase_units: [{
                     amount: {
                         currency_code: 'EUR',
-                        value: '0.01',
+                        value: this.priceToString(),
                         breakdown: {
                             item_total: {
                                 currency_code: 'EUR',
-                                value: '0.01'
+                                value: this.priceToString()
                             }
                         }
                     },
                     items: [{
-                        name: 'Enterprise Subscription',
+                        name: 'Bus ticket - reservations',
                         quantity: '1',
                         category: 'DIGITAL_GOODS',
                         unit_amount: {
                             currency_code: 'EUR',
-                            value: '0.01',
+                            value: this.priceToString(),
                         },
                     }]
                 }]
@@ -49,9 +68,10 @@ export class CheckoutComponent implements OnInit {
             },
             style: {
                 label: 'paypal',
-                layout: 'vertical'
+                layout: 'horizontal'
             },
             onApprove: (data, actions) => {
+                this.createTicket();
                 console.log('onApprove - transaction was approved, but not authorized', data, actions);
                 actions.order.get().then((details: any) => {
                     console.log('onApprove - you can get full order details inside onApprove: ', details);
@@ -76,6 +96,29 @@ export class CheckoutComponent implements OnInit {
                 //this.resetStatus();
             }
         };
+    }
+
+    public selectPayementMethod(method: string) {
+        this.paypalSelected = method == PaymentType.PayPal ? true: false;
+        console.log(this.paypalSelected)
+    }
+
+    public createTicket() {
+        const ticket: Ticket = {
+            uuid: crypto.randomUUID(),
+            reservations: this.reservations,
+            payement: this.paypalSelected ? PaymentType.PayPal : PaymentType.Card,
+            totalPrice: this.totalPrice
+        }
+        if(this.reservations.length > 0) {
+            this.cartService.addTicket(ticket);
+            this.cartService.clearCart();
+            this.router.navigate(['/thank-you'])
+        }
+    }
+
+    public priceToString(): string {
+        return this.totalPrice.toFixed(2);
     }
 
 }

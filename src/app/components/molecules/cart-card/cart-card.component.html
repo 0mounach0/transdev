@@ -40,8 +40,8 @@
             </div>
         </div>
     </div>
-    <div class="line-card">
-        <img (click)="confirmEdit()" class="search-icon" width="15px" src="assets/icons/icon_pencil.svg" alt="search"> <br>
-        <img (click)="confirmDelete()"class="search-icon" width="18px" src="assets/icons/delete.svg" alt="search">
+    <div class="line-card" >
+        <img *ngIf="!hideButtons" (click)="confirmEdit()" class="search-icon" width="15px" src="assets/icons/icon_pencil.svg" alt="search"> <br>
+        <img *ngIf="!hideButtons" (click)="confirmDelete()"class="search-icon" width="18px" src="assets/icons/delete.svg" alt="search">
     </div>
 </div>

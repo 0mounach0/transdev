@@ -6,3 +6,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+  /* variables */
+  :root {
+	/* colors */
+	--ri5-color-primary-hsl: 242, 69%, 52%;
+	--ri5-color-bg-hsl: 0, 0%, 100%;
+	--ri5-color-contrast-high-hsl: 230, 7%, 23%;
+	--ri5-color-contrast-higher-hsl: 230, 13%, 9%;
+	--ri5-color-bg-darker-hsl: 240, 4%, 90%;
+	--ri5-color-white-hsl: 0, 0%, 100%;
+  
+	/* typography */
+	--ri5-text-sm: 0.833rem;
+	
+	--radio-switch-width: 186px;
+	--radio-switch-height: 46px;
+	--radio-switch-padding: 1px;
+	--radio-switch-radius: 100vw;
+	--radio-switch-animation-duration: 0.3s;
+  }

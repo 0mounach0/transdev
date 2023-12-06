@@ -3,7 +3,8 @@ import { Reservation } from "./reservation.model";
 
 export interface Ticket {
     uuid: string;
-    reservation: Reservation;
+    reservations: Reservation[];
     payement: PaymentType;
+    totalPrice: number;
     [key: string]: any;
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, Subject, map } from 'rxjs';
 import { Cart } from 'src/app/models/cart.model';
 import { Reservation } from 'src/app/models/reservation.model';
+import { Ticket } from 'src/app/models/ticket.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,15 @@ export class CartService {
     this.calculateTotalPrice();
   }
 
+  public addTicket(ticket: Ticket) {
+    const currentCart = this.cartSubject.value;
+  
+    this.cartSubject.next({
+      ...currentCart,
+      ['tickets']: [...(currentCart['tickets'] || []), ticket]
+    });
+  }
+
   public removeReservation(reservation: Reservation) {
     this.cartSubject.next({
       ...this.cartSubject.value,
@@ -51,6 +61,12 @@ export class CartService {
   public getReservations(): Observable<Reservation[]> {
     return this.cart$.pipe(
       map((cart) => cart.reservations || [])
+    );
+  }
+
+  public getTickets(): Observable<Ticket[]> {
+    return this.cart$.pipe(
+      map((cart) => cart['tickets'] || [])
     );
   }
 
@@ -77,12 +93,12 @@ export class CartService {
   }
 
   public clearCart() {
+    const currentCart = this.cartSubject.value;
     this.cartSubject.next({
-      reservations: [],
-      clients: [],
-      tickets: []
+      ...currentCart,
+      reservations: []
     });
-  }
+}
 
   [Symbol.iterator]() {
     return this.cart$.subscribe();

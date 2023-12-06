@@ -13,6 +13,7 @@ import { EditModalComponent } from '../edit-modal/edit-modal.component';
 export class CartCardComponent implements OnInit {
 
   @Input() item!: Reservation;
+  @Input() hideButtons: boolean = false;
 
   constructor(private _modalService: NgbModal, private cartService: CartService) { 
   }
