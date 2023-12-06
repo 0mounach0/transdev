@@ -8,7 +8,8 @@
 </div>
 <div class="modal-body">
     <p>
-        <strong>Ajouter le trajet Du bus <badge [label]="item.busNum"></badge> au panier </strong>
+        <strong *ngIf="!delete">Ajouter le trajet Du bus <badge [label]="item.busNum"></badge> au panier </strong>
+        <strong *ngIf="delete">Supprimer le trajet Du bus <badge [label]="item.busNum"></badge> du panier </strong>
     </p>
     <p>
         Heure de depart: <strong> {{item.startTime}} </strong> <br>
@@ -18,5 +19,8 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary" (click)="modal.close(false)">Annuler</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close(true)">Ajouter</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close(true)">
+        <ng-container *ngIf="!delete">Ajouter</ng-container>
+        <ng-container *ngIf="delete">Supprimer</ng-container>
+    </button>
 </div>

@@ -3,31 +3,45 @@
         <badge [label]="item.line.busNum"></badge>
     </div>
     <div class="line-description">
-        <div class="line-contain">
-            <div class="start">
-                <strong>Depart</strong> | 
-                <span class="city"> {{item.line.startCity}}</span>
-                <span class="station"> - {{item.line.startStation}}</span>
+        <div class="infos">
+            <div class="line-contain">
+                <div class="start">
+                    <strong>Depart</strong> | 
+                    <span class="city"> {{item.line.startCity}}</span>
+                    <span class="station"> - {{item.line.startStation}}</span>
+                </div>
+                <div class="end">
+                    <strong>Arrivée</strong> | 
+                    <span class="city"> {{item.line.endCity}}</span>
+                    <span class="station"> - {{item.line.endStation}}</span>
+                </div>
             </div>
-            <div class="end">
-                <strong>Arrivée</strong> | 
-                <span class="city"> {{item.line.endCity}}</span>
-                <span class="station"> - {{item.line.endStation}}</span>
+            <div class="line-contain">
+                <div class="line-price">
+                    <strong>Prix</strong> | 
+                    <span class="price"> {{item.line.price}} <small>Euro</small></span>
+                </div>
+                <div class="line-time">
+                    <strong>Heure de Depar</strong> | 
+                    <span class="startTime"> {{item.line.startTime}}</span>
+                </div>
             </div>
         </div>
-        <div class="">
-            <div class="line-price">
-                <strong>Prix</strong> | 
-                <span class="price"> {{item.line.price}} <small>Euro</small></span>
-            </div>
-            <div class="line-time">
-                <strong>Heure de Depar</strong> | 
-                <span class="startTime"> {{item.line.startTime}}</span>
+        <div class="client-infos">
+            <div class="line-contain">
+                <div class="line-price">
+                    <strong>Nom Prénom</strong> | 
+                    <span class="price"> {{item.client.fullName}} </span>
+                </div>
+                <div class="line-time">
+                    <strong>Email</strong> | 
+                    <span class="startTime"> {{item.client.email}}</span>
+                </div>
             </div>
         </div>
     </div>
     <div class="line-card">
-        <img class="search-icon" width="15px" src="assets/icons/icon_pencil.svg" alt="search"> <br>
-        <img (click)="removeReservation()"class="search-icon" width="18px" src="assets/icons/delete.svg" alt="search">
+        <img (click)="confirmEdit()" class="search-icon" width="15px" src="assets/icons/icon_pencil.svg" alt="search"> <br>
+        <img (click)="confirmDelete()"class="search-icon" width="18px" src="assets/icons/delete.svg" alt="search">
     </div>
 </div>

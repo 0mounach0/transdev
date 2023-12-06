@@ -10,6 +10,7 @@ import { Line } from 'src/app/models/line.model';
 export class ConfirmModalComponent implements OnInit {
 
   @Input() item!: Line;
+  @Input() delete!: boolean;
 
   constructor(public modal: NgbActiveModal) {}
 

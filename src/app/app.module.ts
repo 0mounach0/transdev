@@ -26,6 +26,7 @@ import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
 import { ConfirmModalComponent } from './components/molecules/confirm-modal/confirm-modal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { CartCardComponent } from './components/molecules/cart-card/cart-card.component';
+import { EditModalComponent } from './components/molecules/edit-modal/edit-modal.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CartCardComponent } from './components/molecules/cart-card/cart-card.co
     PaginationComponent,
     DebouceKeyupDirective,
     ConfirmModalComponent,
-    CartCardComponent
+    CartCardComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule,

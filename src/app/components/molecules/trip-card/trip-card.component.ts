@@ -21,7 +21,7 @@ export class TripCardComponent implements OnInit {
   }
 
   confirmAddToCart() {
-    const modalRef = this._modalService.open(ConfirmModalComponent);
+    const modalRef = this._modalService.open(ConfirmModalComponent, { centered: true });
     modalRef.componentInstance.item = this.item;
     
     modalRef.result.then(res => {
@@ -37,17 +37,4 @@ export class TripCardComponent implements OnInit {
       }
     })
   }
-
-  removeReservation(reservation: Reservation) {
-    this.cartService.removeReservation(reservation);
-  }
-
-  editReservation(reservation: Reservation) {
-    this.cartService.editReservation(reservation);
-  }
-
-  clearCart() {
-    this.cartService.clearCart();
-  }
-
 }
