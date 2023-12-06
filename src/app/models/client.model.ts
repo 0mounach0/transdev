@@ -1,4 +1,4 @@
-export interface Line {
+export interface Client {
     uuid: string;
     fullName: string;
     email: string;
