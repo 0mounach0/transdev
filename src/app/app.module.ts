@@ -24,6 +24,7 @@ import { PaginationComponent } from './components/organisms/pagination/paginatio
 import { HttpClientModule } from '@angular/common/http';
 import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
 import { ConfirmModalComponent } from './components/molecules/confirm-modal/confirm-modal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ConfirmModalComponent } from './components/molecules/confirm-modal/conf
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,  
-    HttpClientModule
+    HttpClientModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
