@@ -4,24 +4,36 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng s` for a dev server. 
+Navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+## Deployed Version
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+https://0mounach0.github.io/transdev/
 
-## Build
+## Paypal test Credentials
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Email: sb-lgru528605217@personal.example.com
+Password: p@0!Cooj
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## To improve [If more time provided]
 
-## Running end-to-end tests
+- More Unit testing 
+- css improvement using css vars
+- A better design and color depending on clients chart
+- Use a Rxjs state management lib
+- A better Css responsive on different screensizes
+...... 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Features
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular 14 
+- Scroll to up
+- Get data from json file
+- Atomic design
+- debouce directive
+- mixings, and css vars
+- paypal integration
+- using Rxjs
+- ..... 
