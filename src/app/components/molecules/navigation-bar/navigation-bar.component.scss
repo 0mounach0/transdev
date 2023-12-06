@@ -1,10 +1,49 @@
-
-nav {
-    background-color: white;
-}
 .brand {
     display: block;
     margin: auto;
-    width: 100px;
+    width: 150px;
     text-align: center;
+}
+
+nav ul {
+    list-style-type: none !important;
+}
+
+/* Styles for screens 768 pixels and wider */
+@media (min-width: 768px) {
+
+    nav {
+        background-color: white;
+        height: 100px;
+        padding: 0% 20%;
+    }
+    
+    .brand {
+        margin-right: 50px;
+    } 
+
+    .nav-item {
+        font-size: 20px;
+    }
+    
+}
+
+/* Styles for screens 768 pixels and wider */
+@media (max-width: 768px) {
+
+    nav {
+        background-color: white;
+        min-height: 100px;
+        padding: 0%;
+    }
+    
+    .brand {
+        margin: auto;
+    } 
+    
+}
+
+.search-icon:hover {
+    opacity: 50%;
+    cursor: pointer;
 }

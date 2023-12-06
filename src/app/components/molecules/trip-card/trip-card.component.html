@@ -3,21 +3,28 @@
         <badge [label]="item.busNum"></badge>
     </div>
     <div class="line-description">
-        <div class="start">
-            <span class="city"> {{item.startCity}}</span>
-            <span class="station"> - {{item.startStation}} - </span>
+        <div class="line-contain">
+            <div class="start">
+                <strong>Depart</strong> | 
+                <span class="city"> {{item.startCity}}</span>
+                <span class="station"> - {{item.startStation}}</span>
+            </div>
+            <div class="end">
+                <strong>Arrivée</strong> | 
+                <span class="city"> {{item.endCity}}</span>
+                <span class="station"> - {{item.endStation}}</span>
+            </div>
         </div>
-        <div class="end">
-            <span class="city"> {{item.endCity}}</span>
-            <span class="station"> - {{item.endStation}}</span>
+        <div class="">
+            <div class="line-price">
+                <strong>Prix</strong> | 
+                <span class="price"> {{item.price}} <small>Euro</small></span>
+            </div>
+            <div class="line-time">
+                <strong>Heure de Depar</strong> | 
+                <span class="startTime"> {{item.startTime}}</span>
+            </div>
         </div>
-    </div>
-    <div class="line-price">
-        <span class="price"> {{item.price}}</span>
-    </div>
-    <div class="line-time">
-        <span class="startTime"> {{item.startTime}}</span>
-        <span class="nPlaces"> {{item.nPlaces}}</span>
     </div>
     <div class="line-card">
         <img (click)="confirmAddToCart()" class="search-icon" width="25px" src="assets/icons/add-to-cart.svg" alt="search">

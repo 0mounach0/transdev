@@ -10,18 +10,20 @@
   <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="/" class="nav-link" (click)="isNavbarCollapsed = !isNavbarCollapsed">Recherche</a>
+        <a routerLink="/" class="nav-link" >Acceuil</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/reservations" class="nav-link" (click)="isNavbarCollapsed = !isNavbarCollapsed">Reservations</a>
+        <a routerLink="/reservations" class="nav-link" >Reservations</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/cart" class="nav-link" (click)="isNavbarCollapsed = !isNavbarCollapsed">Panier</a>
-      </li>
+      
     </ul>
   </div>
 
-  <div class="cart">
-    {{reservations.length}}
+  <div class="cart" >
+    <ul>
+      <li class="nav-item">
+        <a routerLink="/cart" class="nav-link" ><img  class="search-icon" width="25px" src="assets/icons/add-to-cart.svg" alt="search"> {{reservations.length}}</a>
+      </li>
+    </ul>
   </div>
 </nav>

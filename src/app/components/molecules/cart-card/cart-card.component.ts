@@ -18,12 +18,12 @@ export class CartCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeReservation(reservation: Reservation) {
-    this.cartService.removeReservation(reservation);
+  removeReservation() {
+    this.cartService.removeReservation(this.item);
   }
 
-  editReservation(reservation: Reservation) {
-    this.cartService.editReservation(reservation);
+  editReservation() {
+    this.cartService.editReservation(this.item);
   }
 
   clearCart() {

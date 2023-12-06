@@ -1,8 +1,9 @@
 <div class="container">
 
-    <h2>Shopping Cart</h2>
+    <h1>Shopping Cart</h1>
 
     <div class="reservations">
+        <img *ngIf="reservations.length <= 0" class="sad" width="250px" src="assets/icons/sad.svg" alt="search">
         <ng-container *ngIf="reservations">
             <ng-container *ngFor="let item of reservations">
                 <cart-card [item]="item"></cart-card>
@@ -11,6 +12,6 @@
     </div>
 
 
-    <button routerLink="/checkout" class="Checkout-btn">Checkout</button>
+    <button [disabled]="reservations.length <= 0" routerLink="/checkout" class="checkout-button">Checkout</button>
 
 </div>
