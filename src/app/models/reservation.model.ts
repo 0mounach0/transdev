@@ -3,7 +3,7 @@ import { Line } from "./line.model";
 
 export interface Reservation {
     uuid: string;
-    lines: Line[];
-    client: Client[];
+    line: Line;
+    client: Client;
     [key: string]: any;
 }

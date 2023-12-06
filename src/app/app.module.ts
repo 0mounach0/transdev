@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DebouceKeyupDirective } from './directives/debouce-keyup.directive';
 import { ConfirmModalComponent } from './components/molecules/confirm-modal/confirm-modal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { CartCardComponent } from './components/molecules/cart-card/cart-card.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     TripCardComponent,
     PaginationComponent,
     DebouceKeyupDirective,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    CartCardComponent
   ],
   imports: [
     BrowserModule,

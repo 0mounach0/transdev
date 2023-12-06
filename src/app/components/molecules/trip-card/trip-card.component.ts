@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Line } from 'src/app/models/line.model';
 import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
+import { Reservation } from 'src/app/models/reservation.model';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'trip-card',
@@ -12,7 +14,7 @@ export class TripCardComponent implements OnInit {
 
   @Input() item!: Line;
 
-  constructor(private _modalService: NgbModal) { 
+  constructor(private _modalService: NgbModal, private cartService: CartService) { 
   }
 
   ngOnInit(): void {
@@ -21,11 +23,31 @@ export class TripCardComponent implements OnInit {
   confirmAddToCart() {
     const modalRef = this._modalService.open(ConfirmModalComponent);
     modalRef.componentInstance.item = this.item;
+    
     modalRef.result.then(res => {
       if(res) {
-        console.log("add to cart !!")
+        const reservation: Reservation = {
+          uuid: crypto.randomUUID(),
+          client: { email: "", fullName: "", uuid: crypto.randomUUID() },
+          line: this.item
+        };
+
+        this.cartService.addReservation(reservation);
+        
       }
     })
+  }
+
+  removeReservation(reservation: Reservation) {
+    this.cartService.removeReservation(reservation);
+  }
+
+  editReservation(reservation: Reservation) {
+    this.cartService.editReservation(reservation);
+  }
+
+  clearCart() {
+    this.cartService.clearCart();
   }
 
 }

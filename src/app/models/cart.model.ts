@@ -1,8 +1,7 @@
 import { Reservation } from "./reservation.model";
 
 export interface Cart {
-    uuid: string;
-    reservations: Reservation[];
-    totalPrice: number;
+    reservations?: Reservation[] | undefined;
+    totalPrice?: number;
     [key: string]: any;
 }

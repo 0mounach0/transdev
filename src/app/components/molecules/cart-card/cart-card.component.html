@@ -1,0 +1,25 @@
+<div class="cart-card">
+    <div class="line-number">
+        <badge [label]="item.line.busNum"></badge>
+    </div>
+    <div class="line-description">
+        <div class="start">
+            <span class="city"> {{item.line.startCity}}</span>
+            <span class="station"> - {{item.line.startStation}} - </span>
+        </div>
+        <div class="end">
+            <span class="city"> {{item.line.endCity}}</span>
+            <span class="station"> - {{item.line.endStation}}</span>
+        </div>
+    </div>
+    <div class="line-price">
+        <span class="price"> {{item.line.price}}</span>
+    </div>
+    <div class="line-time">
+        <span class="startTime"> {{item.line.startTime}}</span>
+        <span class="nPlaces"> {{item.line.nPlaces}}</span>
+    </div>
+    <div class="line-card">
+        <img  class="search-icon" width="25px" src="assets/icons/add-to-cart.svg" alt="search">
+    </div>
+</div>
