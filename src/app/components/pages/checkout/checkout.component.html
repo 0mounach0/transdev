@@ -59,6 +59,8 @@
 			</div>
 		</form>
 		<div class="paypal-container container" *ngIf="paypalSelected">
+			<h1>Discount Paypal : 5% 
+				Final Price: <span class="totalPrice left">{{priceToString()}} <strong>Euro</strong></span></h1>
 			<ngx-paypal [config]="payPalConfig"></ngx-paypal>
 		</div>
 		

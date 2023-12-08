@@ -20,6 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   public reservations!: Reservation[];
   public totalPrice: number = 0;
+  public discountPaypal: number = 0.05;
 
   constructor(private cartService: CartService, private router: Router) { 
     this.cartService.getReservations().subscribe(reservations => {
@@ -118,7 +119,7 @@ export class CheckoutComponent implements OnInit {
     }
 
     public priceToString(): string {
-        return this.totalPrice.toFixed(2);
+        return (this.totalPrice - (this.totalPrice * this.discountPaypal)).toFixed(2);
     }
 
 }
